@@ -356,6 +356,20 @@ abstract class AbstractPlatform
     }
 
     /**
+     * Returns the SQL snippet used to declare a ENUM column type.
+     *
+     * @param array $values
+     *
+     * @return string
+     *
+     * @throws \Doctrine\DBAL\DBALException If not supported on this platform.
+     */
+    protected function getEnumerationTypeDeclarationSQLSnippet(array $values)
+    {
+        throw DBALException::notSupported('BINARY/VARBINARY column types are not supported by this platform.');
+    }
+
+    /**
      * Returns the SQL snippet used to declare a CLOB column type.
      *
      * @param array $field

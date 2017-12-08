@@ -19,6 +19,7 @@
 
 namespace Doctrine\DBAL\Types;
 
+use AppBundle\Doctrine\DBAL\Types\EnumType;
 use Doctrine\DBAL\Platforms\AbstractPlatform;
 use Doctrine\DBAL\DBALException;
 
@@ -58,6 +59,7 @@ abstract class Type
     const FLOAT = 'float';
     const GUID = 'guid';
     const DATEINTERVAL = 'dateinterval';
+    const ENUM = 'enum';
 
     /**
      * Map of already instantiated type objects. One instance per type (flyweight).
@@ -97,6 +99,7 @@ abstract class Type
         self::BLOB => BlobType::class,
         self::GUID => GuidType::class,
         self::DATEINTERVAL => DateIntervalType::class,
+        self::ENUM => EnumType::class,
     ];
 
     /**
